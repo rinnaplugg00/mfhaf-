@@ -1,0 +1,32 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("количество строк: ");
+        int rows = int.Parse(Console.ReadLine());
+
+        int[][] jaggedArray = new int[rows][];
+
+        for (int i = 0; i < rows; i++)
+        {
+            jaggedArray[i] = new int[i + 1];
+            for (int j = 0; j <= i; j++)
+            {
+                Console.Write($"элемент [{i},{j}]: ");
+                jaggedArray[i][j] = int.Parse(Console.ReadLine());
+            }
+        }
+
+        Console.WriteLine("\nзубчатый массив:");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j <= i; j++)
+            {
+                Console.Write(jaggedArray[i][j] + "\t");
+            }
+            Console.WriteLine();
+        }
+    }
+  }
