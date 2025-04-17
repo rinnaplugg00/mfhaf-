@@ -4,10 +4,10 @@ class Program
 {
     static void Main()
     {
-        Console.Write("Введите количество строк (N): ");
+        Console.Write("колво строк: ");
         int n = int.Parse(Console.ReadLine());
 
-        Console.Write("Введите количество столбцов (M): ");
+        Console.Write("колво столбцов: ");
         int m = int.Parse(Console.ReadLine());
 
         int[,] array = new int[n, m];
@@ -16,12 +16,12 @@ class Program
         {
             for (int j = 0; j < m; j++)
             {
-                Console.Write($"Введите элемент [{i},{j}]: ");
+                Console.Write($"введите элемент [{i},{j}]: ");
                 array[i, j] = int.Parse(Console.ReadLine());
             }
         }
 
-        Console.WriteLine("Исходный массив:");
+        Console.WriteLine("массив:"); 
         PrintArray(array, n, m);
 
         int[,] transposed = new int[m, n];
@@ -34,7 +34,7 @@ class Program
             }
         }
 
-        Console.WriteLine("Массив, отражённый по главной диагонали:");
+        Console.WriteLine("массив отражённый по главной диагонали:");
         PrintArray(transposed, m, n);
     }
 
