@@ -1,0 +1,43 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введите количество строк: ");
+        int rows = int.Parse(Console.ReadLine());
+
+        Console.Write("Введите количество столбцов: ");
+        int cols = int.Parse(Console.ReadLine());
+
+        int[,] array = new int[rows, cols];
+
+        int max = int.MinValue;
+        int maxRow = 0;
+        int maxCol = 0;
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write($"Введите элемент [{i},{j}]: ");
+                int value;
+                while (!int.TryParse(Console.ReadLine(), out value))
+                {
+                    Console.Write("Неверный ввод. Введите целое число: ");
+                }
+                array[i, j] = value;
+
+                if (value > max)
+                {
+                    max = value;
+                    maxRow = i;
+                    maxCol = j;
+                }
+            }
+        }
+
+        Console.WriteLine("Наибольший элемент: " + max);
+        Console.WriteLine("Координаты: [" + maxRow + "," + maxCol + "]");
+    }
+}
